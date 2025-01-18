@@ -40,3 +40,8 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
+#OUTPUT
+# Press 'Space' to capture an image and 'ESC' to exit.
+# Number of pixels in the image: 307200
+# Image saved as 'captured_image.jpg' and 'captured_image.png'.
