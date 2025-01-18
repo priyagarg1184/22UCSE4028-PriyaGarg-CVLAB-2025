@@ -7,10 +7,8 @@ def scale_image(image, scale_factor):
     new_height = int(height * scale_factor)
     new_width = int(width * scale_factor)
 
-    # Create an empty array for the scaled image
     scaled_image = np.zeros((new_height, new_width, channels), dtype=np.uint8)
 
-    # Map pixels from the original image to the scaled image
     for i in range(new_height):
         for j in range(new_width):
             src_x = int(i / scale_factor)
@@ -63,22 +61,19 @@ def flip_image(image, flip_axis):
     return flipped_image
 
 def main():
-    # Load the JPG image
-    image = cv2.imread('Exp 2.jpg')  # Replace 'input.jpg' with your image file path
+    image = cv2.imread('Input Image.jpg')  
     if image is None:
         print("Error: Could not load image.")
         return
 
-    # Perform operations
     scale_factor = 0.5
-    angle = 45  # Angle in degrees
+    angle = 45
 
     scaled_image = scale_image(image, scale_factor)
     rotated_image = rotate_image(image, angle)
     flipped_image_vertical = flip_image(image, 0)
     flipped_image_horizontal = flip_image(image, 1)
 
-    # Save results
     cv2.imwrite('scaled_image.jpg', scaled_image)
     cv2.imwrite('rotated_image.jpg', rotated_image)
     cv2.imwrite('flipped_image_vertical.jpg', flipped_image_vertical)
